@@ -46,7 +46,7 @@ mydatabase-journal
 debug.log
 
 # Ignore Media
-media
+# media
 
 # #ignoring migrations to remove problem faced created by individual developer
 #**/migrations/**

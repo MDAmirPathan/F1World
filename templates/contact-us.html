@@ -1,0 +1,74 @@
+﻿{% extends 'assets/base-template.html' %}
+<!-- load main
+load captchaKey  -->
+{% load static %}
+
+<!-- Title of the page -->
+{% block title %} Contact Us {% endblock title%}
+{% block extraCSS %}
+<!-- Map Box -->
+<link href="https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.css" rel="stylesheet" />
+{% endblock extraCSS %}
+
+
+{% block extraJS %}
+<!-- Map Box JS -->
+<script src="https://api.tiles.mapbox.com/mapbox-gl-js/v1.3.1/mapbox-gl.js" defer></script>
+<script src="https://unpkg.com/es6-promise@4.2.4/dist/es6-promise.auto.min.js" defer></script>
+<script src="https://unpkg.com/@mapbox/mapbox-sdk/umd/mapbox-sdk.min.js" defer></script>
+<script type="module">
+  mapboxgl.accessToken =
+    "pk.eyJ1IjoiZ2FtYm9sIiwiYSI6ImNqdm03bzYydDE2cW00YWwyeHprd3FqamcifQ.HBy4R4sRcXgbgn2OteqFkQ";
+  var mapboxClient = mapboxSdk({ accessToken: mapboxgl.accessToken });
+  mapboxClient.geocoding
+    .forwardGeocode({
+      query: "Ludhiana, India",
+      autocomplete: false,
+      limit: 1,
+    })
+    .send()
+    .then(function (response) {
+      if (
+        response &&
+        response.body &&
+        response.body.features &&
+        response.body.features.length
+      ) {
+        var feature = response.body.features[0];
+
+        var map = new mapboxgl.Map({
+          container: "map",
+          style: "mapbox://styles/mapbox/streets-v11",
+          center: [75.8429, 30.9042],
+          zoom: 10,
+        });
+
+        new mapboxgl.Marker().setLngLat(feature.center).addTo(map);
+      }
+
+      // Add zoom and rotation controls to the map.
+      map.addControl(new mapboxgl.NavigationControl());
+    });
+</script>
+{% endblock extraJS %}
+
+
+<!-- Header Start -->
+{% block header %}
+{% include 'assets/base-header.html' %}
+{% endblock header %}
+<!-- Header End -->
+
+<!-- Content Start -->
+{% block content %}
+<br>
+this is contact US
+<br>
+{% endblock content %}
+<!-- Content End -->
+
+<!-- Footer Start -->
+{% block footer %}
+{% include 'assets/base-footer.html' %}
+{% endblock footer %}
+<!-- Footer End -->

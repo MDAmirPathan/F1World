@@ -1,0 +1,44 @@
+﻿{% extends 'assets/base-onepagemodal-template.html' %}
+{% load captchaKey %}
+{% load static %}
+
+<!-- title start -->
+{% block title %} Sign Up Next Step {% endblock title%}
+<!-- title end -->
+
+<!-- using jquery library -->
+{% block extraJS %}
+
+
+
+<!-- this script is for populating states -->
+ <!-- ready event occurs when the DOM (document object model) has been loaded -->
+
+ <script src="{% static 'js/authentication/sign-up-steps.js' %}" defer></script>
+{% endblock extraJS %}
+
+<!-- Content Start -->
+{% block content %}
+<!-- Signup Start -->
+{% block header %}
+{% include 'assets/base-onepagemodal-header.html' %}
+{% endblock header %}
+
+
+{% include 'tools/user-checker.html' %}
+{% block footer %}
+{% include 'assets/base-onepagemodal-footer.html' %}
+{% endblock footer %}
+{% endblock content %}
+
+<!-- Signup End -->
+
+<!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script src=" {% static 'js/jquery-3.3.1.min.js' %} "></script>
+<script src=" {% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %} "></script>
+<script src=" {% static 'vendor/OwlCarousel/owl.carousel.js' %} "></script>
+<script src=" {% static 'vendor/fomantic/dist/semantic.min.js' %} "></script>
+<script src=" {% static 'js/custom.js' %} "></script>
+<script src=" {% static 'js/night-mode.js' %} "></script> -->
+

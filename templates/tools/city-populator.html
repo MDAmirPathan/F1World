@@ -1,0 +1,24 @@
+<script>
+	$.ajax({
+		url: '/getStateCity/',
+		type: 'POST',
+		data: { 'stateName': "{{ user_info_dict.user_state }}" },
+	})
+		.done(function (response) {
+			let opt = `<option value="">Select City</option>`;
+			for (key in response) {
+				if (response[key]['fields']['city_name'] == "{{ user_info_dict.user_city }}"){
+					opt += "<option value='" + response[key]['fields']['city_name'] + "' selected>" + response[key]['fields']['city_name'] + "</option>";
+					document.getElementById("inputCity").innerHTML = opt;
+				} else{
+					opt += "<option value='" + response[key]['fields']['city_name'] + "'>" + response[key]['fields']['city_name'] + "</option>";
+					document.getElementById("inputCity").innerHTML = opt;
+				}
+				
+			}
+		})
+		.fail(function () {
+			console.log("Failed");
+			alert("Select State again");
+		});
+</script>

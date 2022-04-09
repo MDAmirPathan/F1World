@@ -1,0 +1,13 @@
+<script>
+    $.ajax({
+        url: "{% url 'main:getHeaderInfo' %}",
+        method: "GET",
+        success: function(data){
+            user = data.user_data;
+            console.log(user.name, user.email)
+            $("#nameid").html(user.name)
+            $("#emailid").html(user.email)
+
+        }
+    })
+</script>

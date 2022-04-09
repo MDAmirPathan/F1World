@@ -1,0 +1,33 @@
+<script>
+    try{
+		if ('{{orgkyc_exist.exist }}' == 'exists'){
+			alert('Someone has already registered in this organisation using Your id. Please contact your Organisation')
+		}else if('{{orgkyc_exist.exist }}' == 'webinar_exists'){
+            alert('You cannot convert to individual as you have a webinar coming up or you have a private course on this website')
+        }
+	}catch{
+
+	}
+    $('#inputUsername').keyup(function(){
+        let username = $('#inputUsername').val()
+        var count = 0
+        mydata = {username: username}
+        $.ajax({
+            url: "{% url 'main:checkUserName' %}",
+            method: "POST",
+            data: mydata,
+            success: function(data){
+                // console.log(data.status)
+                if(data.status==1){
+                    var large = '<p id="username_check" style=" color:red"> This username is already taken. Please use other username</p>'
+                    $('#usernameDiv').append(large)
+                    document.getElementById("save_btn").disabled = true;
+                } else {
+                    $('#username_check').remove()
+                    document.getElementById("save_btn").disabled = false;
+                }
+            }
+
+        })
+    })
+</script>

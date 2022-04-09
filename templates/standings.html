@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Standings Page</title>
+</head>
+<body>
+
+    <!-- the pop up displayin the cookie -->
+		{% include 'cookie-card.html' %}
+		<!-- Header Start -->
+		{% block header %}
+		{% include 'assets/base-header.html' %}
+		{% endblock header %}
+		<!-- Header End -->
+    
+		<!-- Body Start -->
+        Hi to Standings
+
+        <!-- footer starts here -->
+        {% block 'footer' %}
+        {% include 'assets/base-footer.html' %}
+        {% endblock %}
+        <!-- footer Ends Here -->
+</body>
+</html>

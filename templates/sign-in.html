@@ -1,0 +1,24 @@
+﻿{% extends 'assets/base-onepagemodal-template.html' %}
+{% load captchaKey %}
+{% load static %}
+
+<!-- title start -->
+{% block title %} Sign In {% endblock title%}
+<!-- title end -->
+
+<!-- Content Start -->
+{% block content %}
+<!-- Signup Start -->
+{% block header %}
+{% include 'assets/base-onepagemodal-header.html' %}
+{% endblock header %}
+
+sig-in
+<!-- Footer Start -->
+{% block footer %}
+{% include 'assets/base-onepagemodal-footer.html' %}
+{% endblock footer %}
+<!-- Footer End -->
+<!-- Signup End -->
+{% endblock content %}
+<!-- Content End -->

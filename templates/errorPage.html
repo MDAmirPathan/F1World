@@ -1,0 +1,35 @@
+﻿{% extends 'assets/base-singlepage-template.html' %}
+{% load static %}
+{% block body %}
+
+<body class="coming_soon_style">
+  <!-- Body Start -->
+  <div class="wrapper coming_soon_wrapper">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="cmtk_group">
+            {% block header %}
+            {% include 'assets/base-singlepage-header.html' %}
+            {% endblock header %}
+            <div class="cmtk_dt">
+              <h1 style="font-size: 60px; color: white;">{{ errorMessageTitle }}</h1>
+              <h4 class="thnk_title1">
+                {{ errorMessageBody }}
+              </h4>
+              <br>
+              <h4 class="thnk_title1">
+                {{ errorObjectMessage }}
+              </h4>
+              <a href=" {% url 'index' %} " class="bk_btn">Go To Homepage</a>
+            </div>
+            {% block footer %}
+            {% include 'assets/base-singlepage-footer.html' %}
+            {% endblock footer %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock body %}

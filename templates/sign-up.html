@@ -1,0 +1,27 @@
+{% extends 'assets/base-onepagemodal-template.html' %}
+{% load captchaKey %}
+{% load static %}
+
+<!-- title start -->
+{% block title %} Sign Up {% endblock title%}
+<!-- title end -->
+
+{% block extraJS %}
+<script src="{% static 'js/authentication/sign-up.js' %}" defer></script>
+{% endblock extraJS %}
+
+<!-- Content Start -->
+{% block content %}
+<!-- Signup Start -->
+{% block header %}
+{% include 'assets/base-onepagemodal-header.html' %}
+{% endblock header %}
+<div class="">
+
+	<!-- Signup End -->
+</div>
+
+{% block footer %}
+{% include 'assets/base-onepagemodal-footer.html' %}
+{% endblock footer %}
+{% endblock content %}

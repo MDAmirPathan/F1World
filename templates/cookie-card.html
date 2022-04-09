@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+		#cookie-card {
+			position: fixed;
+			bottom: 40px;
+			left: 10%;
+			right: 20%;
+			width: 80%;
+			padding: 5px 14px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			background-color: black;
+			color: white;
+			border-radius: 5px;
+			box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+			width: 25rem;
+			z-index:9999;
+		  }
+          
+          #accept-cookies {
+              width: 100%;
+          }
+	</style>
+</head>
+<body>
+    <div class="card" id="cookie-card">
+        <div class="card-body">
+            <h1 class="card-title">Your privacy</h1>
+            <p style="color: white;">By clicking "Accept all cookies", you agree Prishni can store cookies on your device
+                and disclose your information in accordance with our <a href="">cookie policy</a>
+            </p>
+            <button id="accept-cookies" class="btn btn-primary" type="button">Accept All cookies</button>
+        </div>
+    </div>
+    
+    <script>
+        if (localStorage.getItem('cookieSeen') != 'shown') {
+            document.getElementById("cookie-card").style.display = "block";
+        } else {
+            document.getElementById("cookie-card").style.display = "none";
+        }
+    
+        $("#accept-cookies").click(function(e) {
+            localStorage.setItem('cookieSeen', 'shown');
+            document.getElementById("cookie-card").style.display = "none";
+        })
+    </script>
+</body>
+</html>
+

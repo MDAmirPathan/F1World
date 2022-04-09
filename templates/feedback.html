@@ -1,0 +1,124 @@
+﻿{% extends 'assets/base-template.html' %}
+{% load captchaKey %}
+{% load static %}
+
+<!-- title start -->
+{% block title %} Feedback {% endblock title%}
+<!-- title end -->
+
+<!-- header start-->
+{% block header %}
+
+{% include 'assets/base-header.html'%}
+{% endblock header %}
+<!-- header end -->
+
+<!-- Content Start -->
+<!-- To check the type of user -->
+{% block content %}
+{% if usertype.0.0 == 'UL' %}
+{% include 'learner/assets/base-sidebar.html' with feedbackActive="active" %}
+{% elif usertype.0.0 == 'UKE' %}
+{% include 'expert/assets/base-sidebar.html' with feedbackActive="active" %}
+{% elif usertype.0.0 == 'UE' %}
+{% include 'expert/assets/base-sidebar.html' with feedbackActive="active" %}
+{% elif usertype.0.0 == 'UO' %}
+{% include 'organisation/assets/base-sidebar.html' with feedbackActive="active" %}
+{% else %}
+	
+{% endif %}
+
+<div class="wrapper">
+	<div class="sa4d25">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-12">
+					<h2 class="st_title"><i class="uil uil-comment-info-alt"></i> Send Feedback</h2>
+					<div class="row">
+						<div class="col-lg-6 col-md-8">
+							{% if response %}
+								<div class="jumbotron jumbotron-fluid">
+									<center><h1 class="display-4">Thank you for filling out the feedback form.</h1></center>
+									<center><p class="lead">It means a lot for us and helps us to make your experience even better next time.</p></center>
+							  	</div>
+							{% else %}
+							
+								<form action="{% url 'main:submitForFeedBack' %}" method="POST">
+									{% csrf_token %}
+									<div class="ui search focus">
+
+										<div class="ui left icon input swdh11 swdh19">
+
+											<input class="prompt srch_explore" type="text" name="firstName" value=""
+												id="id_email" required="" maxlength="64" placeholder="First Name">
+
+												<input class="prompt srch_explore" type="text" name="lastName" value=""
+												id="id_email" required="" maxlength="64" placeholder="Last Name">
+
+										</div>
+
+									</div>
+
+									<div class="ui search focus mt-30">
+
+										<div class="ui left icon input swdh11 swdh19">
+
+											<input class="prompt srch_explore" type="email" name="emailaddress" value=""
+												id="id_email" required="" maxlength="64" placeholder="Email address">
+
+										</div>
+
+									</div>
+
+									<div class="ui search focus mt-30">
+										<div class="ui form swdh30">
+											<div class="field">
+												<textarea rows="6" name="description" id="id_about"
+													placeholder="Describe your issue or share your ideas"></textarea>
+											</div>
+										</div>
+									</div>
+
+									<div class="form-group1 mt-30">
+										<label for="file5">Add Screenshots</label>
+										<div class="image-upload-wrap">
+											<input class="file-upload-input" name="screenShots" id="file5" type="file" onchange="readURL(this);"
+												accept="image/*">
+											<div class="drag-text">
+												<i class="fas fa-cloud-upload-alt"></i>
+												<h4>Select screenshots to upload</h4>
+												<p>or drag and drop screenshots</p>
+											</div>
+										</div>
+									</div>
+
+									<div class="ui form mt-15 checkbox_sign">
+										<input class="form-control d-none" data-recaptcha="true"
+										data-error="Please complete the Captcha">
+										<!-- <label>Captcha</label> -->
+										<div class="g-recaptcha" data-sitekey="{% getCaptchaSiteKey %}"></div>
+										<div class="help-block with-errors"></div>
+										{% if error %}
+										<p style="color: red;">{{error}}</p>
+										{% endif %}
+									</div>
+
+									<button class="save_btn" type="submit">Send Feedback</button>
+								</form>
+							{% endif %}
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock content %}
+<!-- Content End -->
+
+
+<!-- Footer Start -->
+{% block footer %}
+{% include 'assets/base-home-footer.html' %}
+{% endblock footer %}
+<!-- Footer End -->

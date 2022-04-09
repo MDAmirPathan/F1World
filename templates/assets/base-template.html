@@ -1,0 +1,105 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, shrink-to-fit=9" />
+    <title>{% block title %} {% endblock title%}</title>
+
+    <!-- Favicon Icon -->
+    <link rel="icon" type="image/png" href=" {% static 'images/abc.png' %} ">
+
+    <!-- adding extra css -->
+    <!-- <link href=" {% static 'css/modified-style.css' %} " rel="stylesheet"> -->
+
+    <!-- Stylesheets -->
+    <!-- <link href='http://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet'>
+    <link href="{% static 'vendor/unicons-2.0.1/css/unicons.css' %}" rel='stylesheet'>
+    <link href=" {% static 'css/style.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/vertical-responsive-menu1.min.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/home-page.css' %} " rel="stylesheet"> -->
+    <!-- <link href=" {% static 'css/expert-vertical-responsive-menu1.min.css' %} " rel="stylesheet"> -->
+    <!-- <link href=" {% static 'css/expert-dashboard.css' %} " rel="stylesheet"> -->
+    <!-- <link href=" {% static 'css/dashboard-responsive.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/night-mode.css' %} " rel="stylesheet">
+    <link href=" {% static 'css/header-footer.css' %} " rel="stylesheet" />
+    <link href=" {% static 'css/pillar-dashboard.css' %} " rel="stylesheet" /> -->
+
+    {% block extraCSS %}
+    {% endblock extraCSS %}
+
+
+    {% block extraJS %}
+    {% endblock extraJS %}
+
+    <!-- <script src="//www.google.com/recaptcha/api.js"></script> -->
+
+    <style>
+        .cookie-banner {
+            position: fixed;
+            bottom: 40px;
+            left: 10%;
+            right: 10%;
+            width: 80%;
+            padding: 5px 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #eee;
+            border-radius: 5px;
+            box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+          }
+          .close {
+            height: 20px;
+            background-color: #777;
+            border: none;
+            color: white;
+            border-radius: 2px;
+            cursor: pointer;
+          }
+    </style>
+</head>
+
+<body class="general">
+    <div class='cookie-banner' style='display: none'>
+        <!-- <p>
+            By using our website, you agree to our 
+            <a href=" url 'legal:cookiePolicy' ">cookie policy</a>
+          </p> -->
+      </div>
+
+      <script>
+        if (localStorage.getItem('cookieSeen') != 'shown') {
+          $('.cookie-banner').delay(2000).fadeIn();
+          localStorage.setItem('cookieSeen','shown')
+        };
+        $('.close').click(function() {
+          $('.cookie-banner').fadeOut();
+        })
+      </script>
+    <!-- Header Start -->
+    {% block header %}
+    {% endblock header %}
+    <!-- Header End -->
+    <!-- Left Sidebar Start -->
+    {% block sidebar %}
+    {% endblock sidebar %}
+    <!-- Left Sidebar End -->
+    <!-- Body Start -->
+
+    {% block content %}
+    <br>
+    This IS Base Temlpate
+    <br>
+    {% endblock content %}
+
+    {% block footer %}
+    {% endblock footer %}
+    <!-- Body End -->
+
+
+</body>
+
+</html>

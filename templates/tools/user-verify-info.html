@@ -1,0 +1,154 @@
+<script>
+	var uploaded = 'Uploaded'
+	var notUploaded = 'Not Uploaded'
+
+	// COMMONS 
+
+	
+
+	// Populate pan card info
+	$('#PanCardNumber').val('{{verification_data.pan_number}}')
+
+	// Mentor Self Image 
+	getFileData('{{verification_data.img_proof}}', 'inputImageLabel')
+
+	// Image Verification
+	if ('{{verification_data.self_image}}'==notUploaded){
+		var self_image = '<p id="username_check" style="margin-top: 20px; color: red" >'+'{{verification_data.self_image}}'+'</p>'
+	}
+	else{
+		var self_image = '<p id="username_check" style="margin-top: 20px;" >'+'{{verification_data.self_image}}'+'</p>'
+	}
+	$('#imgClass').append(self_image)
+
+	// Pan Image
+	getFileData('{{verification_data.pan_proof}}', 'inputPanLabel')
+
+	// Pan Verification
+	if ('{{verification_data.pan_image}}'==notUploaded){
+		var pan_image = '<p id="username_check" style="margin-top: 20px; color: red" >'+'{{verification_data.pan_image}}'+'</p>'
+	}
+	else{
+		var pan_image = '<p id="username_check" style="margin-top: 20px;" >'+'{{verification_data.pan_image}}'+'</p>'
+	}
+	$('#panClass').append(pan_image)
+
+	// FOR EXPERTS, LEARNERS
+	if ('{{verification_data.usertype}}'=="UKE" || '{{verification_data.usertype}}'=="UKP" || '{{verification_data.usertype}}'=="UE"){
+		// Whether user is public and private
+
+		$('[name=pubPvt]').val('{{ verification_data.is_public }}')
+
+		$('#aboutYou').val('{{ verification_data.mentor_aboutYou}}')
+
+		// All Org Displayer
+		if(Number.isInteger({{ verification_data.mentor_orgid }})){
+			$('[name=organization]').val('Organization')
+			
+			$("#for_all_org").css("display", "block")
+			$("#all_org").css("display", "block")
+			$('[name=all_org]').val( '{{ verification_data.mentor_orgid }}' )
+			
+			$("#forMentorOrgId").css("display", "block")
+			$("#inputMentorOrgId").css("display", "block")
+			$("#inputMentorOrgId").val('{{ verification_data.mentor_kyc_regno }}')
+			$("#certificate-tab").css("display", "none")
+		}
+		else{
+			$('[name=organization]').val('Individual')
+			$("#for_all_org").css("display", "none")
+			$("#certificate-tab").css("display", "block")
+
+		}
+
+		// Organization verified or not
+		if ($('[name=organization]').val()=='Organization'){
+			if('{{ verification_data.mentor_status }}' == 'True'){
+				var verification_text = 'Mentor Organization Id (Verified)'
+				$( "#inputMentorOrgId" ).prop( "disabled", true );
+				$( "#organization1" ).prop( "disabled", true );
+				$( "#all_org" ).prop( "disabled", true );
+				var mentorOrgId = '<input type="hidden" name="inputMentorOrgId" value="' + '{{ verification_data.mentor_kyc_regno }}' + '" class="form-control" id="inputMentorOrgId" style="display: none;">'
+				$('#mentorOrgIdDiv').append(mentorOrgId)
+
+			}
+			else if ('{{ verification_data.mentor_status }}' == 'False'){
+				var verification_text = 'Mentor Organization Id (Not Verified)'
+				
+			}
+			else {
+				var verification_text = 'Mentor Organization Id'
+			}
+			$('#forMentorOrgId').html(verification_text)
+		}
+
+		// Organization id
+		$('[name=all_org]').val('{{ verification_data.mentor_orgid }}')
+
+		// Aadhar Card
+		$('#AadharCardNumber').val('{{verification_data.aadhar_number}}')
+
+		// Aadhar Image 
+		getFileData('{{verification_data.aadhar_proof}}', 'inputAadharLabel')
+
+		// Aadhar Verification
+		if ('{{verification_data.aadhar_image}}'==notUploaded){
+			var aadhar_image = '<p id="username_check" style="margin-top: 20px; color: red" >'+'{{verification_data.aadhar_image}}'+'</p>'
+		}
+		else{
+			var aadhar_image = '<p id="username_check" style="margin-top: 20px;" >'+'{{verification_data.aadhar_image}}'+'</p>'
+		}
+		$('#aadharClass').append(aadhar_image)
+
+		// Degree
+		$('#DegreeName').val('{{verification_data.degree_info}}')
+
+		// Degree Image
+		getFileData('{{verification_data.degree_proof}}', 'inputDegreeLabel')
+
+		// Degree Verification
+		if ('{{verification_data.degree_image}}'==notUploaded){
+			var degree_image = '<p id="username_check" style="margin-top: 20px; color: red" >'+'{{verification_data.degree_image}}'+'</p>'
+		}
+		else{
+			var degree_image = '<p id="username_check" style="margin-top: 20px;" >'+'{{verification_data.degree_image}}'+'</p>'
+		}
+		$('#degreeClass').append(degree_image)
+
+		
+	}
+
+	// FOR ORGANIZATIONS
+	else if ('{{verification_data.usertype}}'=='UO'){
+		// Populate tan card number
+		$('#TanCardNumber').val('{{verification_data.tan_number}}')
+		
+		// Tan Image
+		getFileData('{{verification_data.tan_proof}}', 'inputTanLabel')
+
+		// Tan Verification
+		if ('{{verification_data.tan_image}}'== notUploaded){
+			var tan_image = '<p id="username_check" style="margin-top: 20px; color: red" >'+'{{verification_data.tan_image}}'+'</p>'
+		}
+		else{
+			var tan_image = '<p id="username_check" style="margin-top: 20px;" >'+'{{verification_data.tan_image}}'+'</p>'
+		}
+		$('#tanClass').append(tan_image)
+
+		// GST card number
+		$('#GstCardNumber').val('{{verification_data.gst_number}}')
+
+		// GST Image
+		getFileData('{{verification_data.gst_proof}}', 'inputGstLabel')
+
+		// GST Verification
+		if ('{{verification_data.gst_image}}'== notUploaded){
+			var gst_image = '<p id="username_check" style="margin-top: 20px; color: red" >'+'{{verification_data.gst_image}}'+'</p>'
+		}
+		else{
+			var gst_image = '<p id="username_check" style="margin-top: 20px;" >'+'{{verification_data.gst_image}}'+'</p>'
+		}
+		$('#gstClass').append(gst_image)
+
+	}
+</script>

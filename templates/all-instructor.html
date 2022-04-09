@@ -1,0 +1,121 @@
+﻿{% extends 'assets/base-template.html' %}
+{% load main %}
+{% load static %}
+
+<!-- Title of the page -->
+{% block title %} View Experts {% endblock title%}
+
+<!-- Header Start -->
+{% block header %}
+{% include 'assets/base-home-header.html' %}
+{% endblock header %}
+<!-- Header End -->
+
+<!-- Content Start -->
+{% block content %}
+<div class="wrapper">
+  <div class="sa4d25">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="section3125">
+            <div class="explore_search">
+              <div class="ui search focus">
+                <div class="ui left icon input swdh11">
+                  <input class="prompt srch_explore" type="text" placeholder="Search Tutors..." />
+                  <i class="uil uil-search-alt icon icon2"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {% if error %}
+        {{ error }}
+        {% endif %}
+
+        <div class="col-md-12">
+          <div class="container-fluid">
+            <div class="row" style="display: flex;">
+              {% for mentor in mentors %}
+              <div class="col-md-4" style="overflow: hidden; max-height: max-content;">
+                <form action="{% url 'main:mentorDetailView' %}" method="POST" id="detailMentorPage{{ mentor.id }}">
+                  {% csrf_token %}
+                  <input type="hidden">
+                  <input type="hidden" name="expertID" value="{{ mentor.ruser_id }}">
+                </form>
+                <div>
+                  <div class="card border-dark mb-3 text-muted" style="margin-top: 10px;">
+                    <div class="card-header">
+                      <a href="javascript:{document.getElementById('detailMentorPage{{ mentor.id }}').submit()}"
+                        title="{{mentor.ruser_id.ruser_num.first_name}} {{mentor.ruser_id.ruser_num.last_name}}">
+                        <p
+                          style="color: black; white-space:nowrap; overflow: hidden; font-weight: bold; font-size: 1.5vmax; text-overflow: ellipsis;">
+                          {{mentor.ruser_id.ruser_num.first_name}} {{mentor.ruser_id.ruser_num.last_name}}</p>
+                        <div style="height: 15vh; width:20vw;">
+                          {% if mentor.mentor_kyc_img %}
+                            <img src=" {{ CDN_DOMAIN }}{{ mentor.mentor_kyc_img }} " alt="Mentor Image" height="100vmax" width="100vmax" />
+                          {% else %}
+                            <h1 class="avatar text-white rounded-circle" style="width: 88px; height: 66px; margin-left: -9px; text-align: center; background-color: rgb(0, 159, 174); font-size: -webkit-xxx-large;">
+                              {{mentor.ruser_id.ruser_num.first_name|make_list|slice:':2'|join:''}}
+                            </h1>
+                          {% endif %}
+                        </div>
+                      </a>
+                      <div class="text-muted" style="font-size: 1.3vmax; margin-top: 8px; align-items: center;">
+                        Experience: <span style="font-size:1.2vmax">{{ mentor.mentor_experience|truncatechars:45}}</span> <br>
+                        Price: <span style="font-size:1.2vmax">{{ mentor.mentor_price }}</span>
+                      </div>
+
+                    </div>
+                    <div class="card-body text-dark">
+                      <h3 class="card-title" style="font-size: 1.3vmax;">Specialization</h3>
+                      <p class="card-text" style="font-size: 1vmax;">{{ mentor.mentor_specialise|truncatechars:65 }}</p>
+                      {% if mentor.mentor_specialise|truncatechars:65|length < 65 %} <br>
+                        {% endif %}
+                        <a style="font-size: 1vmax;"
+                          href="javascript:{document.getElementById('detailMentorPage{{ mentor.id }}').submit()}"
+                          class="btn btn-dark my-1">View Profile</a>
+                        <a style="font-size: 1vmax;"
+                          href="javascript:{document.getElementById('connectToExperts{{ mentor.id }}').submit()}"
+                          class="btn btn-dark my-1">Connect With Expert</a>
+                    </div>
+                    <form action="{% url 'learner:learnerConnectExperts' %}" method="POST" id="connectToExperts{{ mentor.id }}">
+                      {% csrf_token %}
+                      <input type="hidden">
+                    </form>
+                  </div>
+                </div>
+              </div>
+              {% empty %}
+              <br>
+              <h1>There are no experts right now.
+                Write to us at our <a href="{% url 'main:contactUs' %}">Forum</a></h1>
+              {% endfor %}
+            </div>
+
+            <!-- <div class="col-md-12">
+                <div class="main-loader mt-50">
+                  <div class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                  </div>
+                </div>
+              </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock content %}
+<!-- Content End -->
+
+
+<!-- Footer Start -->
+{% block footer %}
+{% include 'assets/base-home-footer.html' %}
+{% endblock footer %}
+<!-- Footer End -->

@@ -1,76 +1,76 @@
-# # File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
+# File created using '.gitignore Generator' for Visual Studio Code: https://bit.ly/vscode-gig
 
-# # Created by https://www.toptal.com/developers/gitignore/api/node
-# # Edit at https://www.toptal.com/developers/gitignore?templates=node
+# Created by https://www.toptal.com/developers/gitignore/api/node
+# Edit at https://www.toptal.com/developers/gitignore?templates=node
 
-# ### Node ###
-# # Logs
-# logs
-# *.log
+### Node ###
+# Logs
+logs
+*.log
 
-# # dotenv environment variables file
-# .env
-# .env.test
-# .env*.local
+# dotenv environment variables file
+.env
+.env.test
+.env*.local
 
-# # parcel-bundler cache (https://parceljs.org/)
-# .cache
-# .parcel-cache
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
 
-# # rollup.js default build output
-# dist/
+# rollup.js default build output
+dist/
 
-# # Gatsby files
-# .cache/
+# Gatsby files
+.cache/
 
-# # DynamoDB Local files
-# .dynamodb/
-# db.sqlite3
-
-
-# # Stores VSCode versions used for testing VSCode extensions
-# .vscode-test
-
-# # Temporary folders
-# tmp/
-# temp/
-
-# #ignore vscode extensions
-# .vscode
-
-# # ignoring mydatabase file
-# mydatabase
-# mydatabase-journal
-
-# # ignoring debug.log
-# debug.log
-
-# # Ignore Media
-# # media
-
-# # #ignoring migrations to remove problem faced created by individual developer
-# #**/migrations/**
-# #!**/migrations
-# #!**/migrations/__init__.py
-
-# udo\ journalctl\ -u\ gunicorn
-
-# # Ignore virtual environments
-# venv-F1World/
-# .venv-F1World/
-
-# # Ignore Python byte code cache
-# *.pyc
-# __pycache__
-# .cache
+# DynamoDB Local files
+.dynamodb/
+db.sqlite3
 
 
-# # Ignore temporary tox environments
-# .tox/
-# .pytest_cache/
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
 
-# # Ignore PyCharm / IntelliJ files
-# .idea/
+# Temporary folders
+tmp/
+temp/
 
-# # Ignore pycache
-# __pycache__
+#ignore vscode extensions
+.vscode
+
+# ignoring mydatabase file
+mydatabase
+mydatabase-journal
+
+# ignoring debug.log
+debug.log
+
+# Ignore Media
+# media
+
+# #ignoring migrations to remove problem faced created by individual developer
+#**/migrations/**
+#!**/migrations
+#!**/migrations/__init__.py
+
+udo\ journalctl\ -u\ gunicorn
+
+# Ignore virtual environments
+venv-F1World/
+.venv-F1World/
+
+# Ignore Python byte code cache
+*.pyc
+__pycache__
+.cache
+
+
+# Ignore temporary tox environments
+.tox/
+.pytest_cache/
+
+# Ignore PyCharm / IntelliJ files
+.idea/
+
+# Ignore pycache
+__pycache__

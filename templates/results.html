@@ -20,6 +20,15 @@
 		<!-- Body Start -->
         Hi to Results
 
+        <div >
+            <h1 class="animate__animated animate__bounce">Name : {{ session.name}}</h1> <br>
+            <h1 class="animate__animated animate__bounce">Date : {{ session.date}}</h1><br>
+            <h1 class="animate__animated animate__bounce">Session : {{ session}}</h1><br>
+            <h1 class="animate__animated animate__bounce">Result : {{ session.results.DriverNumber}}</h1><br>
+
+            <h1 class="animate__animated animate__hinge">An animated element</h1>
+        </div>
+
         <!-- footer starts here -->
         {% block 'footer' %}
         {% include 'assets/base-footer.html' %}

@@ -1,20 +1,44 @@
-{% block header %}
-{% load static %}
-<div >
-    <header id="topHeader">
-        This is header <br>
-        <a href="/">home</a>
-        <a href="/liveTiming/">liveTiming</a>
-        <a href="/results/">results</a>
-        <a href="/aboutUS/">aboutUS</a>
-        <a href="/contactUS/">contactUS</a>
-        <a href="/standings/">standings</a>
-        <a href="/whatsNew/">whatsNew</a>
-    </header>
-</div>
+{% block header %} {% load static %}
+
+<head>
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  <link rel="stylesheet" href="{% static 'css/header.css' %}">
+</head>
+
+<body>
+  <div class="navbar">
+    <div class="container">
+      <a class="logo" href="/">F1<span>WORLD</span></a>
+
+      <img id="mobile-cta" class="mobile-menu" src="{% static 'images/header/menu_icon.svg' %}" alt="open Navigation">
+
+      <nav>
+
+        <img id="mobile-exit" class="mobile-menu-exit" src="{% static 'images/header/close_grey_icon.svg' %}"
+          alt="close Navigation">
+          
+        <ul class="primary-nav">
+          <li class="current"><a href="/">home</a></li>
+          <li><a href="/liveTiming/">liveTiming</a></li>
+          <li><a href="/results/">results</a></li>
+          <li><a href="/aboutUS/">aboutUS</a></li>
+          <li><a href="/contactUS/">contactUS</a></li>
+          <li><a href="/standings/">standings</a></li>
+          <li><a href="/whatsNew/">whatsNew</a></li>
+        </ul>
+
+        <ul class="secondary-nav">
+          <li><a href="/login">Log In</a></li>
+          <li><a href="/signup">Sign Up</a></li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</body>
 <script>
-    //to make header responsive
-    //toggele etc
+  //to make header responsive
+  //toggele etc
 </script>
 
 {% endblock header %}

@@ -1,29 +1,53 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <title>Home Page</title>
 </head>
+
 <body>
 
     <!-- the pop up displayin the cookie -->
-		{% include 'cookie-card.html' %}
-		<!-- Header Start -->
-		{% block header %}
-		{% include 'assets/base-header.html' %}
-		{% endblock header %}
-		<!-- Header End -->
-    
-		<!-- Body Start -->
-        Hi to Home
+    {% include 'cookie-card.html' %}
+    <!-- Header Start -->
+    {% block header %}
+    {% include 'assets/base-header.html' %}
+    {% endblock header %}
+    <!-- Header End -->
 
-        <!-- footer starts here -->
-        {% block 'footer' %}
-        {% include 'assets/base-footer.html' %}
-        {% endblock %}
-        <!-- footer Ends Here -->
+    <!-- Body Start -->
+    Hi to Home
+
+    <section class="hero">
+        <div class="container">
+            <div class="left-col">
+                <p class="subhead"></p>
+                <h1>The Portal For The World Of Formula 1 &amp; Racing...</h1>
+
+                <div class="hero-cta">
+                    <a href="#" class="primary-cta">Try For Free</a>
+                    <a href="#" class="watch-video-cta">
+                        <img src="{% static 'images/home/video-camera-svgrepo-com.svg' %}" height="20px" width="20px"
+                            alt="watch a video">Watch a Video
+                    </a>
+                </div>
+            </div>
+
+            <img class="hero-img" src="{% static 'images/home/head.jpg' %}" alt="Cover Image">
+        </div>
+    </section>
+
+    <!-- footer starts here -->
+    {% block 'footer' %}
+    {% include 'assets/base-footer.html' %}
+    {% endblock %}
+    <!-- footer Ends Here -->
 </body>
+
 </html>

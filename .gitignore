@@ -74,3 +74,4 @@ __pycache__
 
 # Ignore pycache
 __pycache__
+static/fastf1_cache/fastf1_http_cache.sqlite

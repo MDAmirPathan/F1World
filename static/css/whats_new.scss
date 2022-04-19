@@ -1,0 +1,46 @@
+
+
+ul.wnew-ul-list  {
+    margin: 0 0 0 0;
+    padding-left: .1em;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+
+    li {
+        font-size: 1.1em;
+        margin: 0 0 1em 1em;
+        border: 2px solid rgb(174, 138, 138);
+        padding-left: 0;
+        text-align: center;
+        
+        .wnew-img{
+            text-align: center;
+            margin: 0 0 0 0;
+            width: 100%;
+            height: 7em;
+
+        
+        }
+        .wnew-head{
+            text-align: center;
+            color: #444;
+            cursor: pointer;
+
+            &:hover {
+                color: rgb(75, 113, 18);
+            }
+        }
+    }
+}
+
+
+// .wnew-section ul{
+//     display: flex;
+//     padding-left: .1em;
+
+//     li {
+//         margin: 0em 2em;
+//         font-size: 1.1em;
+
+//     }
+// }

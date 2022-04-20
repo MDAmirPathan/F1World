@@ -25,11 +25,12 @@ def contactUS(request):
 
 
 def results(request):
-    fastf1_cache_path = str(os.path.join(os.getcwd(), "static\\fastf1_cache"))
-    fastf1.Cache.enable_cache(fastf1_cache_path)
-    session = fastf1.get_session(2021, 7, 'Q')
-    session.load()
-    return render(request, 'results.html',{'session':session })
+    # fastf1_cache_path = str(os.path.join(os.getcwd(), "static\\fastf1_cache"))
+    # fastf1.Cache.enable_cache(fastf1_cache_path)
+    # session = fastf1.get_session(2021, 7, 'Q')
+    # session.load()
+    # return render(request, 'results.html',{'session':session })
+    return render(request, 'results.html')
 
 
 def standings(request):

@@ -1,0 +1,57 @@
+.results-section {
+  text-align: center;
+  background-image: url("../images/results/2022-F1-Car-Silverstone-Grid-3.webp");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.left-col {
+  width: 100%;
+}
+
+.left-col table {
+  z-index: 999;
+  background-color: white;
+  font-size: 1.4em;
+}
+
+.left-col table .race-th {
+  background-color: #388f38;
+}
+
+.track-img {
+  width: 50%;
+  margin-top: 2em;
+  z-index: 999;
+}
+
+.basic-race-info {
+  background-color: white;
+  margin-top: 0 0 0 0;
+  z-index: 999;
+}
+
+@media only screen and (min-width: 950px) {
+  .results-section .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    text-align: center;
+    width: 90%;
+    padding: 0 3em;
+  }
+  .results-section .container .left-col {
+    margin: 0em 0em 0em 0em;
+  }
+  .track-img {
+    width: 100%;
+    margin: 0 0 3em 2em;
+  }
+  .basic-race-info {
+    margin: 0 0 3em 2em;
+  }
+}
+/*# sourceMappingURL=results.css.map */

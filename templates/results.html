@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/results.css' %}">
     <title>Results Page</title>
 </head>
 <body>
@@ -18,16 +20,68 @@
 		<!-- Header End -->
     
 		<!-- Body Start -->
-        Hi to Results
 
-        <div >
-            <h1 class="animate__animated animate__bounce">Name : {{ session.name}}</h1> <br>
-            <h1 class="animate__animated animate__bounce">Date : {{ session.date}}</h1><br>
-            <h1 class="animate__animated animate__bounce">Session : {{ session}}</h1><br>
-            <h1 class="animate__animated animate__bounce">Result : {{ session.results.DriverNumber}}</h1><br>
 
-            <h1 class="animate__animated animate__hinge">An animated element</h1>
-        </div>
+            <section class="results-section">
+                <div class="container">
+                    <div align="centre" class="left-col">
+                        <table class="race-table">
+                            <tr class="race-tr-th">
+                            <th class="race-th">Rank</th>
+                            <th class="race-th">Driver Number</th>
+                            <th class="race-th">Driver Name</th>
+                            <th class="race-th">Team</th>
+                            <th class="race-th">Laps</th>
+                            <th class="race-th">Time Finished</th>
+                            <th class="race-th">Points</th>
+
+                            </tr>    
+                            <tr class="race-tr">
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                            </tr>
+    
+                            <tr class="race-tr">
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                            </tr>
+    
+                            <tr class="race-tr">
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                                <td class="race-td">data</td>
+                            </tr>
+    
+                        </table>
+                    </div>
+                
+                
+                <div>
+                    <img class="track-img" src="{% static 'images/results/track_images/buddh_int_circuit.jpg' %}" alt="track Name img" >
+                
+                <div class="basic-race-info">
+                    <h2>Abu Dhabi Grand Pix</h2>
+                    <h2>Date: 27 September 2002</h2>
+                    <h2>winner: Amir Pathan</h2>
+                </div>
+                </div>
+            </div>
+            </section>
+
 
         <!-- footer starts here -->
         {% block 'footer' %}

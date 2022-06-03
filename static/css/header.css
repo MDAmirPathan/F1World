@@ -1,6 +1,7 @@
 .navbar {
   background: white;
   padding: 1em;
+  padding-left: 1em;
 }
 
 .navbar .logo {
@@ -8,6 +9,7 @@
   font-weight: bold;
   font-size: 1.2em;
   color: black;
+  padding-left: 0em;
 }
 
 .navbar .logo span {
